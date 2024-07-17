@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "208775008143",
+    "project_id": "manage-shoe",
+    "storage_bucket": "manage-shoe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208775008143:android:b9ddf18237d5a330da85fa",
+        "android_client_info": {
+          "package_name": "com.example.e_medicine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiB894QrjhIx3-IE_fz8KhbLDuTS8eTqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

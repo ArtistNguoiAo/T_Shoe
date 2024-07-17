@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "emedicine-a7d1a",
+    "staging": "manage-shoe"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
