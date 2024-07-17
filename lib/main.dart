@@ -1,6 +1,6 @@
+import 'package:e_medicine/core/di/config_di.dart';
 import 'package:e_medicine/core/route/app_route.dart';
 import 'package:e_medicine/firebase_options.dart';
-import 'package:e_medicine/presentation/screen/login_screen/view/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +9,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  ConfigDI();
   runApp(const MyApp());
 }
 

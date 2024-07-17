@@ -1,10 +1,12 @@
 import 'package:e_medicine/core/common/text_field_common.dart';
 import 'package:e_medicine/core/helper/dialog_helper.dart';
+import 'package:e_medicine/core/route/app_route.dart';
 import 'package:e_medicine/core/utils/color_utils.dart';
 import 'package:e_medicine/core/utils/media_utils.dart';
 import 'package:e_medicine/core/utils/text_style_utils.dart';
 import 'package:e_medicine/core/utils/text_utils.dart';
 import 'package:e_medicine/presentation/screen/login_screen/cubit/login_cubit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,6 +22,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  var _isRememberMe = false;
   var _isHintPassword = true;
 
   @override
@@ -29,12 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if(state is LoginLoaded) {
-            _emailController.text = '';
-            _passwordController.text = '';
+            _emailController.text = state.email;
+            _passwordController.text = state.password;
+            _isRememberMe = state.rememberMe;
           }
           if(state is LoginLoginSuccess) {
             DialogHelper.hideLoadingDialog(context);
-            Navigator.pushNamed(context, 'home');
+            Navigator.pushNamed(context, AppRoutes.home);
             //Navigator.pushReplacementNamed(context, '/login');
           }
           if(state is LoginLoading) {
@@ -62,16 +66,12 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset(
-                MediaUtils.imgLogo,
-                width: 160,
-                height: 160,
-              ),
-              const SizedBox(height: 64),
+              _logo(),
+              _sizeBoxHeight(48),
               _emailTextField(),
               _sizeBoxHeight(16),
               _passwordTextField(),
-              _sizeBoxHeight(16),
+              _rememberMeCheckbox(),
               if(state is LoginError) ...[
                 _errorText(state.message),
               ],
@@ -82,6 +82,14 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _logo() {
+    return SvgPicture.asset(
+      MediaUtils.imgLogo,
+      width: 160,
+      height: 160,
     );
   }
 
@@ -137,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
         context.read<LoginCubit>().login(
           email: _emailController.text,
           password: _passwordController.text,
+          rememberMe: _isRememberMe,
         );
       },
       splashColor: Colors.transparent,
@@ -182,6 +191,28 @@ class _LoginScreenState extends State<LoginScreen> {
         message,
         style: TextStyleUtils.textStyleMuseoS16W400Red,
       ),
+    );
+  }
+
+  Widget _rememberMeCheckbox() {
+    return Row(
+      children: [
+        Expanded(child: Container()),
+        Text(
+          TextUtils.rememberMe,
+          style: TextStyleUtils.textStyleMuseoS16W400Black,
+        ),
+        Checkbox(
+          value: _isRememberMe,
+          onChanged: (value) {
+            setState(() {
+              _isRememberMe = value!;
+            });
+          },
+          activeColor: ColorUtils.primaryColor,
+        ),
+
+      ],
     );
   }
 }

@@ -6,7 +6,7 @@ class TextUtils {
   static String login = 'Login';
   static String register = 'Register';
   static String loading = 'Loading...';
-
+  static String rememberMe = 'Remember Me';
 
   // long string
   static String accountHint = 'Don\'t have an account? ';
