@@ -6,7 +6,6 @@ import 'package:e_medicine/core/utils/media_utils.dart';
 import 'package:e_medicine/core/utils/text_style_utils.dart';
 import 'package:e_medicine/core/utils/text_utils.dart';
 import 'package:e_medicine/presentation/screen/login_screen/cubit/login_cubit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

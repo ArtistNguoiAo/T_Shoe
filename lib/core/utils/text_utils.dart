@@ -12,4 +12,7 @@ class TextUtils {
   static String accountHint = 'Don\'t have an account? ';
   static String emptyError = 'Email and password cannot be empty.';
   static String confirmPasswordError = 'Password and confirm password must be the same.';
+
+  // core
+  static String author = 'Developed by ArtistNguoiAo';
 }
