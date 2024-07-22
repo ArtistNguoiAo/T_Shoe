@@ -24,6 +24,7 @@ class TextStyleUtils {
 
   static TextStyle textStyleMuseoS18W500Black = textStyleMuseoS18W500.copyWith(color: ColorUtils.black);
   static TextStyle textStyleMuseoS18W500GreyCE = textStyleMuseoS18W500.copyWith(color: ColorUtils.greyCE);
+  static TextStyle textStyleMuseoS18W500White = textStyleMuseoS18W500.copyWith(color: ColorUtils.white);
 
   static TextStyle textStyleMuseoS20W600White = textStyleMuseoS20W600.copyWith(color: ColorUtils.white);
 }

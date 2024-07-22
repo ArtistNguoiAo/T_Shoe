@@ -37,8 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
           if(state is LoginLoginSuccess) {
             DialogHelper.hideLoadingDialog(context);
-            Navigator.pushNamed(context, AppRoutes.home);
-            //Navigator.pushReplacementNamed(context, '/login');
+            Navigator.pushReplacementNamed(context, AppRoutes.home);
           }
           if(state is LoginLoading) {
             DialogHelper.showLoadingDialog(context);
