@@ -1,0 +1,22 @@
+part of 'splash_cubit.dart';
+
+@immutable
+sealed class SplashState {}
+
+final class SplashInitial extends SplashState {}
+
+final class SplashLoading extends SplashState {}
+
+final class SplashLoaded extends SplashState {}
+
+final class SplashSuccess extends SplashState {
+  final bool isLogged;
+
+  SplashSuccess({required this.isLogged});
+}
+
+final class SplashError extends SplashState {
+  final String message;
+
+  SplashError(this.message);
+}

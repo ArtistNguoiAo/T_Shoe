@@ -15,7 +15,7 @@ class AuthDataSource {
       String? token = await userCredential.user?.getIdToken() ;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', token!);
-      await prefs.setInt('token_expiration', DateTime.now().add(const Duration(seconds: 3)).millisecondsSinceEpoch);
+      await prefs.setInt('token_expiration', DateTime.now().add(const Duration(hours: 24)).millisecondsSinceEpoch);
 
       if (params.rememberMe) {
         await prefs.setString('saved_email', params.email);
