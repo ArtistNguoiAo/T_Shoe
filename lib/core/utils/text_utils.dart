@@ -19,4 +19,5 @@ class TextUtils {
   // app bar
   static String home = 'Trang chủ';
   static String list = 'Danh sách';
+  static String detail = 'Chi tiết';
 }

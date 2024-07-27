@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: AppRoutes.splash,
-      routes: AppRoutes.getRoutes(context),
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }

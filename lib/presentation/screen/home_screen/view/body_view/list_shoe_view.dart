@@ -1,10 +1,10 @@
 import 'package:e_medicine/core/common/wheel_picker_common.dart';
+import 'package:e_medicine/core/route/app_route.dart';
 import 'package:e_medicine/core/utils/color_utils.dart';
 import 'package:e_medicine/core/utils/text_style_utils.dart';
 import 'package:e_medicine/presentation/screen/home_screen/cubit/list_view_cubit/list_view_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -95,11 +95,13 @@ class _ListShoeViewState extends State<ListShoeView> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-
+              Navigator.pushNamed(context, AppRoutes.shoeDetail, arguments: '${index + 1}');
             },
             onLongPress: () {
 
             },
+            splashColor: ColorUtils.transparent,
+            highlightColor: ColorUtils.transparent,
             child: Stack(
               children: [
                 Positioned(

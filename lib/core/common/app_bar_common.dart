@@ -9,6 +9,7 @@ class AppBarCommon extends AppBar {
   AppBarCommon({
     super.key,
     String? title,
+    Function()? onTapBack,
     required BuildContext context,
   }) : super(
     title: Text(
@@ -34,15 +35,13 @@ class AppBarCommon extends AppBar {
     leading: InkWell(
       splashColor: ColorUtils.transparent,
       highlightColor: ColorUtils.transparent,
+      onTap: onTapBack,
       child: Container(
         padding: const EdgeInsets.all(12),
         child: SvgPicture.asset(
             MediaUtils.imgLogoWhite
         ),
-      ),
-      onTap: () {
-        Navigator.maybePop(context);
-      },
+      )
     ),
     backgroundColor: ColorUtils.primaryColor,
   );

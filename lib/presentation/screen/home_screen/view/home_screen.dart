@@ -63,98 +63,98 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       child: BlocConsumer<HomeCubit, HomeState>(
-            listener: (context, state) {
+        listener: (context, state) {
 
-            },
-            builder: (context, state) {
-              if(state is HomeMenuTypeState) {
-                return Scaffold(
-                  appBar: AppBarCommon(
-                    context: context,
-                    title: _chooseTitleAppBar(state.menuType),
-                  ),
-                  floatingActionButton: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      AnimatedSize(
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeOut,
-                        child: AnimatedOpacity(
-                          opacity: _isExpanded ? 1.0 : 0.0,
-                          duration: const Duration(milliseconds: 200),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Visibility(
-                                visible: _isExpanded,
-                                child: InkWell(
-                                  splashColor: ColorUtils.transparent,
-                                  highlightColor: ColorUtils.transparent,
-                                  onTap: () {
-                                    context.read<HomeCubit>().init(MenuType.LIST);
-                                  },
-                                  child: FaIcon(
-                                    FontAwesomeIcons.list,
-                                    color: state.menuType == MenuType.LIST ? ColorUtils.primaryColor : ColorUtils.primaryColorWithOpa30,
-                                    size: 32,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              Visibility(
-                                visible: _isExpanded,
-                                child: InkWell(
-                                  splashColor: ColorUtils.transparent,
-                                  highlightColor: ColorUtils.transparent,
-                                  onTap: () {
-                                    context.read<HomeCubit>().init(MenuType.HOME);
-                                  },
-                                  child: FaIcon(
-                                    FontAwesomeIcons.house,
-                                    color: state.menuType == MenuType.HOME ? ColorUtils.primaryColor : ColorUtils.primaryColorWithOpa30,
-                                    size: 32,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      InkWell(
-                        splashColor: ColorUtils.transparent,
-                        highlightColor: ColorUtils.transparent,
-                        onTap: _rotateButton,
-                        child: AnimatedRotation(
-                          turns: _rotationAngle / 360,
-                          duration: const Duration(milliseconds: 200),
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: ColorUtils.primaryColor, // Replace with ColorUtils.primaryColor
-                              borderRadius: BorderRadius.circular(8),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: const Center(
+        },
+        builder: (context, state) {
+          if(state is HomeMenuTypeState) {
+            return Scaffold(
+              appBar: AppBarCommon(
+                context: context,
+                title: _chooseTitleAppBar(state.menuType),
+              ),
+              floatingActionButton: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  AnimatedSize(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeOut,
+                    child: AnimatedOpacity(
+                      opacity: _isExpanded ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 200),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Visibility(
+                            visible: _isExpanded,
+                            child: InkWell(
+                              splashColor: ColorUtils.transparent,
+                              highlightColor: ColorUtils.transparent,
+                              onTap: () {
+                                context.read<HomeCubit>().init(MenuType.LIST);
+                              },
                               child: FaIcon(
-                                FontAwesomeIcons.plus,
-                                color: Colors.white,
+                                FontAwesomeIcons.list,
+                                color: state.menuType == MenuType.LIST ? ColorUtils.primaryColor : ColorUtils.primaryColorWithOpa30,
+                                size: 32,
                               ),
                             ),
                           ),
+                          const SizedBox(height: 16),
+                          Visibility(
+                            visible: _isExpanded,
+                            child: InkWell(
+                              splashColor: ColorUtils.transparent,
+                              highlightColor: ColorUtils.transparent,
+                              onTap: () {
+                                context.read<HomeCubit>().init(MenuType.HOME);
+                              },
+                              child: FaIcon(
+                                FontAwesomeIcons.house,
+                                color: state.menuType == MenuType.HOME ? ColorUtils.primaryColor : ColorUtils.primaryColorWithOpa30,
+                                size: 32,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  InkWell(
+                    splashColor: ColorUtils.transparent,
+                    highlightColor: ColorUtils.transparent,
+                    onTap: _rotateButton,
+                    child: AnimatedRotation(
+                      turns: _rotationAngle / 360,
+                      duration: const Duration(milliseconds: 200),
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: ColorUtils.primaryColor, // Replace with ColorUtils.primaryColor
+                          borderRadius: BorderRadius.circular(8),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: const Center(
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                  body: state.menuType == MenuType.HOME
-                      ? const HomeView()
-                      : const ListShoeView()
-                );
-              }
-              return Container();
-            },
-          ),
+                ],
+              ),
+              body: state.menuType == MenuType.HOME
+                  ? const HomeView()
+                  : const ListShoeView()
+            );
+          }
+          return Container();
+        },
+      ),
     );
   }
 }
