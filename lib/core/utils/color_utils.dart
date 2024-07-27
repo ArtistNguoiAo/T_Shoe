@@ -13,5 +13,9 @@ class ColorUtils {
 
   static const Color red = Color(0xffFF0000);
 
+  static const Color blue = Colors.blue;
+
   static Color primaryColorWithOpa30 = ColorUtils.primaryColor.withOpacity(0.3);
+
+  static Color blueWithOpa12 = ColorUtils.blue.withOpacity(0.12);
 }

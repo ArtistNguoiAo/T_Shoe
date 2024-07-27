@@ -11,3 +11,6 @@ final class HomeMenuTypeState extends HomeState {
   HomeMenuTypeState({required this.menuType});
 }
 
+
+
+
