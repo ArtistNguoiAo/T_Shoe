@@ -20,4 +20,10 @@ class TextUtils {
   static String home = 'Trang chủ';
   static String list = 'Danh sách';
   static String detail = 'Chi tiết';
+
+  // header table
+  static String type = 'Loại';
+  static String quantityByPair = 'Số đôi';
+  static String priceByPair = 'Giá/đôi';
+  static String total = 'Tổng';
 }

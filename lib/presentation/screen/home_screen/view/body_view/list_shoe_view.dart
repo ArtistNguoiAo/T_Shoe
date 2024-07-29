@@ -104,21 +104,18 @@ class _ListShoeViewState extends State<ListShoeView> {
             highlightColor: ColorUtils.transparent,
             child: Stack(
               children: [
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Container(
-                    height: 80,
-                    width: MediaQuery.of(context).size.width/2 - 16,
-                    padding: const EdgeInsets.only(left: 16),
-                    decoration: BoxDecoration(
-                      color: ColorUtils.blueWithOpa12,
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
-                      ),
+                Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width - 16,
+                  padding: const EdgeInsets.only(left: 16),
+                  decoration: BoxDecoration(
+                    color: ColorUtils.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: ColorUtils.blue,
                     ),
-                    child: Column(
+                  ),
+                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -149,32 +146,28 @@ class _ListShoeViewState extends State<ListShoeView> {
                           ],
                         )
                       ]
-                    ),
                   ),
                 ),
-                Container(
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: ColorUtils.blueWithOpa12,
-                    borderRadius: BorderRadius.circular(12),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                      height: 40,
+                      width: 120,
+                      decoration: const BoxDecoration(
+                        color: ColorUtils.blue,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(12),
+                          bottomLeft: Radius.circular(12),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          '01 - 02 - 2022',
+                          style: TextStyleUtils.textStyleMuseoS16W400White,
+                        ),
+                      )
                   ),
-                ),
-                Container(
-                    height: 40,
-                    width: 120,
-                    decoration: const BoxDecoration(
-                      color: ColorUtils.blue,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        '01 - 02 - 2022',
-                        style: TextStyleUtils.textStyleMuseoS16W400White,
-                      ),
-                    )
                 ),
               ]
             ),
