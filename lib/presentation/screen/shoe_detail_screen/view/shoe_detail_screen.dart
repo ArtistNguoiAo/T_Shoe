@@ -78,9 +78,9 @@ class _ShoeDetailScreenState extends State<ShoeDetailScreen> {
               child: Table(
                 border: TableBorder.all(),
                 columnWidths: const {
-                  0: FractionColumnWidth(0.38),
-                  1: FractionColumnWidth(0.24),
-                  2: FractionColumnWidth(0.38),
+                  0: FractionColumnWidth(0.37),
+                  1: FractionColumnWidth(0.26),
+                  2: FractionColumnWidth(0.37),
                 },
                 children: [
                   // Header row
@@ -128,7 +128,7 @@ class _ShoeDetailScreenState extends State<ShoeDetailScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           title,
-          style: TextStyleUtils.textStyleMuseoS18W800Black,
+          style: TextStyleUtils.textStyleMuseoS18W600Black,
           textAlign: TextAlign.center,
         ),
       ),

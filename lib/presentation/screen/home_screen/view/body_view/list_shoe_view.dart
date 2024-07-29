@@ -2,8 +2,11 @@ import 'package:e_medicine/core/common/wheel_picker_common.dart';
 import 'package:e_medicine/core/route/app_route.dart';
 import 'package:e_medicine/core/utils/color_utils.dart';
 import 'package:e_medicine/core/utils/text_style_utils.dart';
+import 'package:e_medicine/core/utils/text_utils.dart';
 import 'package:e_medicine/presentation/screen/home_screen/cubit/list_view_cubit/list_view_cubit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,7 +32,12 @@ class _ListShoeViewState extends State<ListShoeView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                _addShoe(),
+                _sizeBoxHeight(16),
                 _chooseMonthAndYear(state),
+                _sizeBoxHeight(16),
+                _filterShoe(),
+                _deviceSizeBoxHeight(16),
                 _sizeBoxHeight(16),
                 _listViewShoe(),
               ]
@@ -41,39 +49,83 @@ class _ListShoeViewState extends State<ListShoeView> {
     );
   }
 
+  Widget _addShoe() {
+    return InkWell(
+      splashColor: ColorUtils.transparent,
+      highlightColor: ColorUtils.transparent,
+      onTap: () {
+        Navigator.pushNamed(context, AppRoutes.shoeCreate);
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: ColorUtils.primaryColor,
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Center(
+          child: Text(
+            "<< ${TextUtils.add} >>",
+            style: TextStyleUtils.textStyleMuseoS16W400White,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _chooseMonthAndYear(ListViewLoaded state) {
-    return Card(
-      elevation: 4,
-      color: ColorUtils.white,
-      shadowColor: ColorUtils.black,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        //color: ColorUtils.primaryColorWithOpa30,
+      ),
       child: Row(
         children: [
           Expanded(
-            child: Container(
-              height: 80,
-              margin: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
-              child: WheelPickerCommon(
-                data: state.listMonth,
-                onSelectedItemChanged: (index) {
-                  setState(() {
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const FaIcon(
+                  FontAwesomeIcons.calendarDay,
+                  color: ColorUtils.blue,
+                ),
+                _sizeBoxHeight(8),
+                SizedBox(
+                  height: 80,
+                  child: WheelPickerCommon(
+                    data: state.listMonth,
+                    onSelectedItemChanged: (index) {
+                      setState(() {
 
-                  });
-                },
-              ),
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
+          _sizeBoxWidth(16),
           Expanded(
-            child: Container(
-              height: 80,
-              margin: const EdgeInsets.only(left: 8, right: 16, top: 8, bottom: 8),
-              child: WheelPickerCommon(
-                data: state.listYear,
-                onSelectedItemChanged: (index) {
-                  setState(() {
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const FaIcon(
+                  FontAwesomeIcons.calendarDay,
+                  color: ColorUtils.blue,
+                ),
+                _sizeBoxHeight(8),
+                SizedBox(
+                  height: 80,
+                  child: WheelPickerCommon(
+                    data: state.listYear,
+                    onSelectedItemChanged: (index) {
+                      setState(() {
 
-                  });
-                },
-              ),
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -87,6 +139,25 @@ class _ListShoeViewState extends State<ListShoeView> {
 
   Widget _sizeBoxWidth(double width) {
     return SizedBox(width: width);
+  }
+
+  Widget _filterShoe() {
+    return Row(
+      children: [
+        Text(
+          TextUtils.list,
+          style: TextStyleUtils.textStyleMuseoS18W600Black,
+        ),
+      ],
+    );
+  }
+
+  Widget _deviceSizeBoxHeight(double height) {
+    return Container(
+      height: 1,
+      color: ColorUtils.greyCE,
+      width: MediaQuery.of(context).size.width - 16,
+    );
   }
 
   Widget _listViewShoe() {
@@ -124,6 +195,7 @@ class _ListShoeViewState extends State<ListShoeView> {
                             const FaIcon(
                               FontAwesomeIcons.calculator,
                               color: ColorUtils.blue,
+                              size: 20,
                             ),
                             _sizeBoxWidth(8),
                             Text(
@@ -137,6 +209,7 @@ class _ListShoeViewState extends State<ListShoeView> {
                             const FaIcon(
                               FontAwesomeIcons.dongSign,
                               color: ColorUtils.blue,
+                              size: 20,
                             ),
                             _sizeBoxWidth(8),
                             Text(

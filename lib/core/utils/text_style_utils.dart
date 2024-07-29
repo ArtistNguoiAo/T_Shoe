@@ -15,7 +15,7 @@ class TextStyleUtils {
   // // weight
   static TextStyle textStyleMuseoS16W400 = textStyleMuseoS16.copyWith(fontWeight: FontWeight.w400);
   static TextStyle textStyleMuseoS18W500 = textStyleMuseoS18.copyWith(fontWeight: FontWeight.w500);
-  static TextStyle textStyleMuseoS18W800 = textStyleMuseoS18.copyWith(fontWeight: FontWeight.w800);
+  static TextStyle textStyleMuseoS18W600 = textStyleMuseoS18.copyWith(fontWeight: FontWeight.w600);
   static TextStyle textStyleMuseoS20W600 = textStyleMuseoS20.copyWith(fontWeight: FontWeight.w600);
 
   // color
@@ -28,7 +28,8 @@ class TextStyleUtils {
   static TextStyle textStyleMuseoS18W500GreyCE = textStyleMuseoS18W500.copyWith(color: ColorUtils.greyCE);
   static TextStyle textStyleMuseoS18W500White = textStyleMuseoS18W500.copyWith(color: ColorUtils.white);
 
-  static TextStyle textStyleMuseoS18W800Black = textStyleMuseoS18W800.copyWith(color: ColorUtils.black);
+  static TextStyle textStyleMuseoS18W600Black = textStyleMuseoS18W600.copyWith(color: ColorUtils.black);
 
   static TextStyle textStyleMuseoS20W600White = textStyleMuseoS20W600.copyWith(color: ColorUtils.white);
+  static TextStyle textStyleMuseoS20W600Black = textStyleMuseoS20W600.copyWith(color: ColorUtils.black);
 }

@@ -26,4 +26,11 @@ class TextUtils {
   static String quantityByPair = 'Số đôi';
   static String priceByPair = 'Giá/đôi';
   static String total = 'Tổng';
+
+  // feature
+  static String add = 'Thêm';
+  static String addRow = 'Thêm hàng';
+  static String deleteRow = 'Xóa hàng';
+  static String chooseDate = 'Ngày công';
+  static String note = 'Ghi chú';
 }

@@ -9,7 +9,7 @@ class WheelPickerCommon extends CupertinoPicker {
     required Function(int) onSelectedItemChanged,
   }) : super(
     itemExtent: 40,
-    looping: true,
+    //looping: true,
     onSelectedItemChanged: onSelectedItemChanged,
     selectionOverlay: Container(
       decoration: BoxDecoration(

@@ -7,4 +7,12 @@ class TextHelper {
       (Match m) => '${m[1]},'
     );
   }
+
+  // format dd/MM/yyyy
+  static String formatDateToString(DateTime dateTime) {
+    String day = dateTime.day.toString().padLeft(2, '0');
+    String month = dateTime.month.toString().padLeft(2, '0');
+    String year = dateTime.year.toString();
+    return '$day/$month/$year';
+  }
 }
